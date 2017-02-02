@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.springframework.hateoas.ResourceSupport;
+
 /**
  * Represents a customer in the CRM system.
  * <p/>
@@ -21,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @XmlRootElement
-public class Customer implements Serializable
+public class Customer extends ResourceSupport implements Serializable
 {
 	/**
 	 * A simple unique value for the customer - note this is determined
