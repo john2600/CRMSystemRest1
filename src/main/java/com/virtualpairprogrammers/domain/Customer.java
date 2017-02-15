@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.hateoas.ResourceSupport;
 /**
  * Represents a customer in the CRM system.
  * <p/>
@@ -21,8 +23,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @XmlRootElement
-public class Customer implements Serializable
+public class Customer extends ResourceSupport implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * A simple unique value for the customer - note this is determined
 	 * by the business and is not necessarily the database primary key.
@@ -33,6 +40,7 @@ public class Customer implements Serializable
 	/**
 	 * The company name
 	 */
+	@javax.validation.constraints.NotNull  // adding new validation using java 
 	private String companyName;
 	
 	/**
@@ -48,6 +56,9 @@ public class Customer implements Serializable
 	/**
 	 * Any notes associated with this customer
 	 */
+	
+	//@javax.validation.constraints.NotNull
+	@NotEmpty
 	private String notes;
 	
 	/**
